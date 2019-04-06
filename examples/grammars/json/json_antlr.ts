@@ -4,7 +4,7 @@ import { JSONParser } from "./antlr/JSONParser"
 
 export function parseAntlr(text) {
     // Create the lexer and parser
-    let inputStream = new ANTLRInputStream("text")
+    let inputStream = new ANTLRInputStream(text)
     let lexer = new JSONLexer(inputStream)
     let tokenStream = new CommonTokenStream(lexer)
     let parser = new JSONParser(tokenStream)
