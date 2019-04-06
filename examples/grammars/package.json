@@ -2,13 +2,18 @@
     "name": "chevrotain_examples_grammars",
     "version": "4.3.2",
     "scripts": {
-        "test": "mocha \"!(node_modules)/**/*spec.js\""
+        "test": "mocha \"!(node_modules)/**/*spec.js\"",
+        "antlr4ts": "antlr4ts -visitor json/JSON.g4 -o json/antlr",
+        "compile": "tsc json/json_antlr.ts --target ES6 --module CommonJS"
     },
     "dependencies": {
-        "chevrotain": "^4.3.2"
+        "antlr4ts": "^0.5.0-alpha.3",
+        "chevrotain": "^4.3.2",
+        "typescript": "^3.4.1"
     },
     "devDependencies": {
         "acorn": "^6.0.3",
+        "antlr4ts-cli": "^0.5.0-alpha.3",
         "xregexp": "^4.2.0"
     },
     "private": true
