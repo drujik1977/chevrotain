@@ -437,6 +437,10 @@ export function applyMixins(derivedCtor: any, baseCtors: any[]) {
             if (propName === "constructor") {
                 return
             }
+            //
+            // if (typeof baseCtor.prototype[propName] !== "function") {
+            //     return
+            // }
 
             const basePropDescriptor = Object.getOwnPropertyDescriptor(
                 baseProto,
@@ -453,6 +457,9 @@ export function applyMixins(derivedCtor: any, baseCtors: any[]) {
                     basePropDescriptor
                 )
             } else {
+                if (typeof baseCtor.prototype[propName] !== "function") {
+                    return
+                }
                 derivedCtor.prototype[propName] = baseCtor.prototype[propName]
             }
         })
