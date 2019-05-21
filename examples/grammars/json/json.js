@@ -63,6 +63,7 @@ class JsonParser extends Parser {
         })
 
         $.RULE("object", () => {
+            const myCSTNode = this.CST_STACK[this.CST_STACK.length - 1]
             $.CONSUME(LCurly)
             $.OPTION(() => {
                 $.SUBRULE($.objectItem)
